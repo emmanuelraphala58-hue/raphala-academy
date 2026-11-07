@@ -1,5 +1,6 @@
  import 'lessons/lesson1.dart';
 import 'lessons/lesson2.dart';
+import 'lessons/lesson3.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -99,8 +100,9 @@ class LessonPage extends StatelessWidget {
   Navigator.push(context, MaterialPageRoute(builder: (_) => LessonDetailPage()));
 } else if (index == 1) {
   Navigator.push(context, MaterialPageRoute(builder: (_) => Lesson2DetailPage()));
-} else {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Coming soon: ${lessons[index]}')));
+} else if (index == 2) {
+  Navigator.push(context, MaterialPageRoute(builder: (_) => Lesson3DetailPage()));
+} else { ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Coming soon: ${lessons[index]}')));
   }
 },
               
@@ -195,6 +197,18 @@ class Lesson2DetailPage extends StatelessWidget {
       body: Padding(
         padding: EdgeInsets.all(16),
         child: Text(lesson2Content, style: TextStyle(fontSize: 17)),
+      ),
+    );
+  }
+}
+class Lesson3DetailPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text(lesson3Title)),
+      body: Padding(
+        padding: EdgeInsets.all(16),
+        child: Text(lesson3Content, style: TextStyle(fontSize: 17)),
       ),
     );
   }
