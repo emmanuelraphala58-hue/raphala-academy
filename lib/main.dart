@@ -1,4 +1,5 @@
  import 'lessons/lesson1.dart';
+import 'lessons/lesson2.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -95,8 +96,10 @@ class LessonPage extends StatelessWidget {
             trailing: Icon(Icons.play_circle_fill, color: Colors.red),
             onTap: () {
   if (index == 0) {
-    Navigator.push(context, MaterialPageRoute(builder: (_) => LessonDetailPage()));
-  } else {
+  Navigator.push(context, MaterialPageRoute(builder: (_) => LessonDetailPage()));
+} else if (index == 1) {
+  Navigator.push(context, MaterialPageRoute(builder: (_) => Lesson2DetailPage()));
+} else {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Coming soon: ${lessons[index]}')));
   }
 },
@@ -180,6 +183,18 @@ class LessonDetailPage extends StatelessWidget {
       body: Padding(
         padding: EdgeInsets.all(16),
         child: Text(lesson1Content, style: TextStyle(fontSize: 17)),
+      ),
+    );
+  }
+}
+class Lesson2DetailPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text(lesson2Title)),
+      body: Padding(
+        padding: EdgeInsets.all(16),
+        child: Text(lesson2Content, style: TextStyle(fontSize: 17)),
       ),
     );
   }
