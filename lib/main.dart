@@ -1,3 +1,4 @@
+ import 'lessons/lesson1.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -93,7 +94,12 @@ class LessonPage extends StatelessWidget {
             title: Text(lessons[index]),
             trailing: Icon(Icons.play_circle_fill, color: Colors.red),
             onTap: () {
-              // Here we will put the content from your Lesson1.java etc
+  if (index == 0) {
+    Navigator.push(context, MaterialPageRoute(builder: (_) => LessonDetailPage()));
+  } else {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Coming soon: ${lessons[index]}')));
+  }
+},
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Opening ${lessons[index]}')));
             },
           );
@@ -163,6 +169,18 @@ class ProgressPage extends StatelessWidget {
             Text('60% - Next: Lesson 8 - Loops & Conditionals'),
           ],
         ),
+      ),
+    );
+  }
+}
+class LessonDetailPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text(lesson1Title)),
+      body: Padding(
+        padding: EdgeInsets.all(16),
+        child: Text(lesson1Content, style: TextStyle(fontSize: 17)),
       ),
     );
   }
