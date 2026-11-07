@@ -100,8 +100,7 @@ class LessonPage extends StatelessWidget {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Coming soon: ${lessons[index]}')));
   }
 },
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Opening ${lessons[index]}')));
-            },
+              
           );
         },
       ),
