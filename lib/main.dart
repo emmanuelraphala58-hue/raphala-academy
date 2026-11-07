@@ -2,6 +2,7 @@ import 'lessons/lesson1.dart';
 import 'lessons/lesson2.dart';
 import 'lessons/lesson3.dart';
 import 'lessons/lesson4.dart';
+import 'lessons/lesson5.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -105,6 +106,8 @@ class LessonPage extends StatelessWidget {
   Navigator.push(context, MaterialPageRoute(builder: (_) => Lesson3DetailPage()));
 } else if (index == 3) {
   Navigator.push(context, MaterialPageRoute(builder: (_) => Lesson4DetailPage()));
+} else if (index == 4) {
+  Navigator.push(context, MaterialPageRoute(builder: (_) => Lesson5DetailPage()));
 } else {
  { ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Coming soon: ${lessons[index]}')));
   }
@@ -225,6 +228,18 @@ class Lesson4DetailPage extends StatelessWidget {
       body: Padding(
         padding: EdgeInsets.all(16),
         child: Text(lesson4Content, style: TextStyle(fontSize: 17)),
+      ),
+    );
+  }
+}
+class Lesson5DetailPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text(lesson5Title)),
+      body: Padding(
+        padding: EdgeInsets.all(16),
+        child: Text(lesson5Content, style: TextStyle(fontSize: 17)),
       ),
     );
   }
